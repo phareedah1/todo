@@ -1,0 +1,108 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Task list</h1>
+        <form>
+            <input 
+                type="text"
+                id="new-task-input"
+                placeholder="what do you have planned" />
+            <input 
+                type="submit"
+                id="new-task-submit"
+                value="Add task" />
+        </form>
+    </header>
+    <main>
+        <section class="task-list">
+            <h2>Tasks</h2>
+            <div id="tasks">
+                <div class="task">
+                    <input type="text" />
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="todo.css">
+</head>
+<body>
+    <div id="container">
+        <div id="big_box">
+            <div>
+                <h1>Todo-List</h1>
+                <input type="text" placeholder="Enter a Todo..." id="taskInput"></input>
+                <button  onclick="addTask()" id="addb">ADD</button>
+            </div>
+            <div id="taskList"></div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskList = document.getElementById("taskList");
+
+
+            var task = document.createElement("div");
+            task.className = "task";
+
+            var taskText = document.createElement("span");
+            taskText.className = "task-text";
+            taskText.textContent = taskInput.value;
+
+            var deleteIcon = document.createElement("i");
+            deleteIcon.className = "fas fa-trash";
+            var editIcon = document.createElement("i");
+            editIcon.className = "fas fa-edit";
+            var checkboxIcon = document.createElement("i");
+            checkboxIcon.className = "fas fa-check-square";
+
+            task.appendChild(taskText);
+            task.appendChild(deleteIcon);
+            task.appendChild(editIcon);
+            task.appendChild(checkboxIcon);
+
+            taskList.appendChild(task);
+
+            taskInput.value = "";
+
+            checkboxIcon.addEventListener("click", function() {
+                taskText.classList.toggle("completed");
+            });
+            }
+
+            document.addEventListener("click", function(event) {
+            if (event.target.matches(".fa-trash")) {
+                event.target.parentNode.remove();
+            } else if (event.target.matches(".fa-edit")) {
+                var taskText = event.target.parentNode.querySelector(".task-text");
+                var newText = prompt("Enter new task text:");
+                taskText.textContent = newText; 
+            }
+        });
+    </script>
+</body>
+</html>
