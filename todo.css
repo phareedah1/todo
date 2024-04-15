@@ -57,9 +57,6 @@ button{
     color: white;
 }
 
-#taskList{
-
-}
 
 input[type="text"]{
         height: 45px;
@@ -90,10 +87,6 @@ input[type="text"]{
     color: white;
 }
 
-.fas fa-trash{
-    color: red;
-}
-
 .completed{
     text-decoration: line-through red;
 }
@@ -116,6 +109,10 @@ input[type="text"]{
         gap: 20px;
         box-shadow: 3px 3px 18px 18px #A5815C;
         
+    }
+
+    .completed{
+        text-decoration: line-through red;
     }
 }
 
