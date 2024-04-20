@@ -102,7 +102,26 @@
                 var newText = prompt("Enter new task text:");
                 taskText.textContent = newText; 
             }
+            
         });
+
+        function loadTasks() {
+            var savedTasks = localStorage.getItem("tasks");
+            if (savedTasks) {
+                taskList.innerHTML = savedTasks;
+            }
+            }
+
+            function saveTasks() {
+            localStorage.setItem("tasks", taskList.innerHTML);
+        }
+
+
+        window.addEventListener("beforeunload", saveTasks);
+
+        window.addEventListener("load", loadTasks);
+
+
     </script>
 </body>
 </html>
